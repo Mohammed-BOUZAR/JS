@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercice 4</title>
+        <!-- <link rel="stylesheet" href="../CSS/main.css"> -->
+    </head>
+    <body>
+
+        <h1>Exercice 4</h1>
+        <input type="text" id="ajt">
+        <button onclick="ajout();">Ajouter</button>
+        <button onclick="supp();">Supprimer</button>
+        <ol id="ol">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+            <li>PHP</li>
+            <li>SQL</li>
+        </ol>
+        
+
+
+        <script>
+            //Exercice 4
+
+            var objet = document.getElementsByTagName("li");
+            objet[0].innerHTML += "<br><li>JQUERY</li>"; //Q2
+            
+
+            var collect = document.getElementsByTagName("ol")[0]; //Q3
+
+            collect.type = "circle";  //Q4
+
+            var text;
+
+            function ajout(){
+                let i = 0;
+                i = objet.length -1;
+                text = window.ajt.value;
+                objet[i].outerHTML += "<li>" + text + "</li>";
+            }  //Q5
+
+            function supp(){
+                let i = 0;
+                i = objet.length -1;
+                objet[i].outerHTML = "";
+            }  //Q6
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercice 5</title>
+        <link rel="stylesheet" href="../CSS/main.css">
+    </head>
+    <body>
+        <h1>Exercice 5</h1>
+        <br>
+        <form action="">
+            <table>
+                <tr>
+                    <td>Nom utilisateur : </td>
+                    <td><input type="text" id="nom" onblur="verifPseudo();"></td>
+                </tr>
+                <tr>
+                    <td>Adresse email : </td>
+                    <td><input type="email" id="email" onblur="verifMail();"></td>
+                </tr>
+                <tr>
+                    <td>Mot de passe : </td>
+                    <td><input type="text" id="passd" onblur="motDePasse();"></td>
+                </tr>
+                <tr>
+                    <td>Confirmation mot de passe : </td>
+                    <td><input type="text" id="confpassd" onblur="verifPass();verifForm();"></td>
+                </tr>
+            </table>
+            <input type="submit" disabled id="input" onsubmit="return verifForm();">
+        </form>
+
+        <script>
+            // Exercice 5
+            
+            function surligne(champ,erreur){
+                let r = 0;
+                if(erreur == true){
+                    document.getElementById("nom").style.border = "2px solid red";
+                    alert("Le Nom invalide !!");
+                    r = 1;
+                }
+                return r;
+            }
+            
+            function verifPseudo(){
+                var r = 0;
+                var val = document.getElementById("nom").value.length;
+                var psed = window.nom.value;
+                var test = (val < 2) || (val > 25);
+                if(test){
+                    surligne(!test,test);
+                    r = 1;
+                }
+                else{
+                    document.getElementById("nom").style.border = "1px solid black";
+                }
+                return r;
+            }
+
+            function verifMail(){
+                var r = 0;
+                var mail = window.email.value;
+                var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                var test = pattern.test(mail);
+                if(!test){
+                    document.getElementById("email").style.border = "2px solid red";
+                    alert("Email est invalide !!");
+                    r = 1;
+                }
+                else{
+                    document.getElementById("email").style.border = "1px solid black";
+                }
+                return r;
+            }
+            function motDePasse(){
+                var pas = window.passd.value;
+                if(pas == ''){
+                        document.getElementById("passd").style.border = "2px solid red";
+                        alert("Le mot de passe est invalide !!");
+                    }
+                else
+                    document.getElementById("passd").style.border = "1px solid black";
+            }
+            function verifPass(){
+                var r = 0;
+                var pass = window.passd.value;
+                var conf = window.confpassd.value;
+                
+                if(!(pass === conf)){
+                    document.getElementById("confpassd").style.border = "2px solid red";
+                    alert("Le mot de passe est invalide !!");
+                    r = 1;
+                }
+                else{
+                    document.getElementById("confpassd").style.border = "1px solid black";
+                }
+                return r;
+            }
+
+            function verifForm(){
+                if((verifPseudo() != false) || (verifMail() != false) || (verifPass() != false)){
+                    document.getElementById("input").disabled = true;
+                    document.getElementById("input").style.backgroundColor = "rgb(177, 253, 187)";
+                    document.getElementById("input").style.border = "1px solid rgb(177, 253, 187)";
+                }
+                else{
+                    document.getElementById("input").disabled = false;
+                    document.getElementById("input").style.backgroundColor = "rgb(23, 240, 52)";
+                    document.getElementById("input").style.border = "1px solid rgb(23, 240, 52)";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(255, 225, 161);
+}
+form>input{
+    /* background-color: aqua; */
+    border: 1px solid black;
+    border-radius: 6px;
+}
+*{
+    list-style-type: none;
+}
+#input{
+    padding: 6px 9px;
+    background-color: rgb(176, 248, 186);
+    color: white;
+    font-weight: bold;
+    border: 2px solid rgb(176, 248, 186);
+}
+#input:active{
+    background-color: rgb(12, 179, 34);
+    padding: 5px 8px;
+}

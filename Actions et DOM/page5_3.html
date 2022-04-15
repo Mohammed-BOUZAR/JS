@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exercice 3</title>
+        <link rel="stylesheet" href="../CSS/main.css">
+    </head>
+    <body onload="reload();">
+
+
+        <h1>Exercice 3</h1> 
+        <h4>Dans quel pays habitent les Maures ?</h4>
+        <ul>
+            <li><input type="checkbox" class="f" id="q1">En Mauritanie</li>
+            <li><input type="checkbox" class="v" id="q1">Au Maroc</li>
+            <li><input type="checkbox" class="f" id="q1">Au Mali</li>
+        </ul>
+        <h4>Quel mot désigne une surface?</h4>
+        <ul>
+            <li><input type="checkbox" class="f" id="q2">L'ère</li>
+            <li><input type="checkbox" class="f" id="q2">L'air</li>
+            <li><input type="checkbox" class="v" id="q2">L'aire</li>
+        </ul> 
+        <h4>Quel mot désigne un choc?</h4>
+        <ul>
+            <li><input type="checkbox" class="f" id="q3">Un coût</li>
+            <li><input type="checkbox" class="v" id="q3">Un coup</li>
+            <li><input type="checkbox" class="f" id="q3">Un cou</li>
+        </ul> 
+        <h4>Quelle est la ligne de métro qui passe à la station Dupleix ?</h4>
+        <ul>
+            <li><input type="checkbox" class="v" id="q4">Ligne 6</li>
+            <li><input type="checkbox" class="f" id="q4">Ligne 9</li>
+            <li><input type="checkbox" class="f" id="q4">Ligne 16</li>
+        </ul> 
+        <h4>Quelle nom de la station qui porte le nom d'une célèbre bataille ?</h4>
+        <ul>
+            <li><input type="checkbox" class="f" id="q5">Passy</li>
+            <li><input type="checkbox" class="f" id="q5">Trocadéro</li>
+            <li><input type="checkbox" class="v" id="q5">Bir-Hakeim</li>
+        </ul> 
+        <h4>Citez une station de la ligne 5 qui à été fermée ?</h4>
+        <ul>
+            <li><input type="checkbox" class="v" id="q6">Arsenal</li>
+            <li><input type="checkbox" class="f" id="q6">Haxo</li>
+            <li><input type="checkbox" class="f" id="q6">Martin Nadaud</li>
+        </ul>
+        <p id="result"></p>
+        <button id="btn" onclick="valide();">Valide</button>
+        <script>
+            //Exercice 3
+            
+            var v = document.getElementsByClassName("v");
+            var f = document.getElementsByClassName("f");
+            
+            function valide(){
+                var r = 0;
+                for(var i = 0; i < v.length; i++){
+                    if(v[i].checked){
+                        r += 1;
+                    }
+                }
+                for(var i = 0; i < f.length; i++){
+                    if(f[i].checked){
+                        r -= 1/2;
+                    }
+                }
+                // document.getElementById("result").innerHTML = "Votre resultat : " + r;
+                document.body.innerHTML = "Votre resultat est : " + r;
+            }
+            function reload(){
+                for(var i = 0; i < v.length; i++){
+                   v[i].checked = false; 
+                }
+                for(var i = 0; i < f.length; i++){
+                   f[i].checked = false; 
+                }
+            }
+
+        </script>
+
+    </body>
+</html>
+
